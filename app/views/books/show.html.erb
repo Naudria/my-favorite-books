@@ -1,2 +1,31 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h1><%= @book.title %></h1>
+<table>
+  <tr>
+    <td>Title:</td>
+    <td>Author:</td>
+    <td>Genre:</td>
+    <td>Average Rating:</td>
+  </tr>
+  <tr>
+    <td> <%= @book.title %></td>
+    <td><%= @book.author %></td>
+    <td><%= @book.genre %></td>
+    <td><%= show_stars(@book.average_rating) %></td>
+  </tr>
+</table>
+<div>
+  <% if !@book.ratings.empty? %>
+    <%= link_to "Read Reviews", book_ratings_path(@book) %>
+  <% end %>
+</div>
+<div>
+  <% if !@book.users.include?(current_user) %>
+    <div><%= link_to "Add a review", new_book_rating_path(@book), class: "form-group btn btn-primary" %></div>
+  <% end %>
+  <% if @book.creator_id == current_user.id %>
+    <div>
+      <%= link_to "Edit this book", edit_book_path %>
+    </div>
+  <% end %>
+  <div><%= link_to "Back to Profile", user_path(current_user) %></div>
+</div>
