@@ -1,0 +1,16 @@
+<div>
+  <%= form_for @book do |f| %>
+    <div>
+      <%= f.label "Title: " %> <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label "Author: " %> <%= f.text_field :author %>
+    </div>
+    <div>
+      <%= f.label "Genre: " %> <%= f.select :genre, [["Fantasy"], ["Romance"], ["General Fiction"], ["Young Adult"], ["Mystery"], ["Thriller"], ["Sci-Fi"]], include_blank: true %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
