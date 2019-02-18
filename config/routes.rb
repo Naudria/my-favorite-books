@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-
-  get 'books/index'
-  get 'books/new'
-  get 'books/show'
-  get 'books/edit'
   root 'welcome#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users, only: [:new, :create, :show]
+
+  resources :books do
+    resources :ratings
+  end
+
+  resources :ratings
+
+
 end
