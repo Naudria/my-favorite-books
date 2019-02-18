@@ -1,21 +1,16 @@
 class ApplicationController < ActionController::Base
-  before_action :current_user
   protect_from_forgery with: :exception
-
+  before_action :current_user
 
   def current_user
-    @current_user = User.find(session[:user_id]) if session[:user_id]
+    @user = (User.find_by(id: session[:user_id]) || User.new)
   end
-  helper_method :current_user
 
   def logged_in?
-    session[:user_id]
+    current_user.id != nil
   end
 
-  def redirect_if_not_logged_in
-    if !logged_in?
-      redirect_to root_path
-    end
+  def require_logged_in
+    return redirect_to(controller: 'sessions', action: 'new') unless logged_in?
   end
-
 end
