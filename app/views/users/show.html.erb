@@ -1,7 +1,7 @@
-<h1>Hello <%= @user.name %>!</h1>
+<h1>Hello <%= @current_user.name %>!</h1>
 <div>
   <h2>List of Books You've Reviewed:</h2>
-  <% @user.ratings.each do |rating| %>
+  <% @current_user.ratings.each do |rating| %>
     <h4><%= link_to "#{rating.book.title}", book_path(rating.book) %> — <%= show_stars(rating.stars) %></h4>
   <% end %>
 </div>

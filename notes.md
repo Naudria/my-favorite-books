@@ -46,6 +46,6 @@ end
 The ‘form_for’ Rails helper method requires you to pass in an object for each level of nesting.
 Rails comes pre-loaded with a bunch of different useful helper methods, one of which is ‘form_for,’ which assists with the routing for model-based form input.
 
-Typically, I would use an instance of a model as the sole argument in a form. When we create a new rating, with the models outlined earlier, what we are really doing is creating a new rating object that belongs to a book object. Therefore, without letting our ‘form_for’ element which book we want to relate the form input to as well as which rating, our ‘form_for’ model will not work. An example of my form for creating a new rating is below.
+Typically, I would use an instance of a model as the sole argument in a form. When we create a new rating, with the models outlined earlier, what we are really doing is creating a new rating object that belongs to a book object. Therefore, without letting our ‘form_for’ element know which book we want to relate the form input to as well as which rating, our ‘form_for’ model will not work. An example of my form for creating a new rating is below.
 
 
