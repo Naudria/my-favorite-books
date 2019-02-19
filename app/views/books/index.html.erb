@@ -1,2 +1,35 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h1>All Books</h1>
+<table>
+  <tr>
+    <td><strong>Title</strong></td>
+    <td><strong>Author</strong></td>
+    <td><strong>Genre</strong></td>
+    <td><strong>Avg Rating</strong></td>
+  </tr>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= link_to "#{book.title}", book_path(book) %></td>
+      <td><%= book.author %></td>
+      <td><%= book.genre %></td>
+      <td><%= book.average_rating %></td>
+    </tr>
+  <% end %>
+</table>
+<div>
+  <%= form_tag '/filter' do %>
+    <label>Sort by:</label>
+    <%= select_tag "filter", "<option>Popularity</option>".html_safe, include_blank: true %>
+    <%= submit_tag "Submit" %>
+  <% end %>
+</div>
+<div>
+  <%= form_tag '/genre_filter', method: :get do %>
+    <label>filter by genre:</label>
+    <%= select_tag "genre", options_from_collection_for_select(Book.all.uniq{| book | book.genre}, "genre", "genre") %>
+    <%= submit_tag "Submit" %>
+  <% end %>
+</div>
+<div>
+  <%= link_to "Add a Book!", new_book_path %>
+</div>
+<div><%= link_to "Back to Profile", user_path(current_user) %></div>
