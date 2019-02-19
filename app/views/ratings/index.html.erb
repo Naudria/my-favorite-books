@@ -1,2 +1,7 @@
-<h1>Ratings#index</h1>
-<p>Find me in app/views/ratings/index.html.erb</p>
+<h1>Ratings </h1>
+<% @ratings.each do |rating| %>
+  Rating: <%= show_stars(rating.stars) %>
+  User: <%=  rating.user.name %>
+  <br>
+  <%= link_to "Read the Review", book_rating_path(rating.book, rating) %></li>
+<% end %>

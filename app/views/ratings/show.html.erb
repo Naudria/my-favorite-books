@@ -1,2 +1,10 @@
-<h1>Ratings#show</h1>
-<p>Find me in app/views/ratings/show.html.erb</p>
+<h1><%= @rating.book.title %></h1>
+<h2>Review by: <%= @rating.user.name %></h2>
+<h2> <%= show_stars(@rating.stars) %> </h2>
+<h3>Notes: </h3>
+<p><%= @rating.notes %></p>
+<% if current_user == @rating.user %>
+  <%= link_to "Edit Review", edit_book_rating_path(@rating.book, @rating) if @rating.book %>
+<% end %>
+<div>
+  <%= link_to "Back to All Books", books_path %></div>
