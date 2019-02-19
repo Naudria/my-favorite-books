@@ -39,7 +39,19 @@ class RatingsController < ApplicationController
   end
 
   def edit
+    @book = Book.find_by(id: params[:book_id])
+
+    if @rating.user_id != current_user.id
+      redirect_to books_path
+    end
   end
+
+  def update
+    @rating.update(rating_params)
+
+    redirect_to book_rating_path(@rating.book, @rating)
+  end
+
 
   private
 
