@@ -1,1 +1,19 @@
 <h1>Hello <%= @user.name %>!</h1>
+<div>
+  <h2>List of Books You've Reviewed:</h2>
+  <% @user.ratings.each do |rating| %>
+    <h4><%= link_to "#{rating.book.title}", book_path(rating.book) %> — <%= show_stars(rating.stars) %></h4>
+  <% end %>
+</div>
+<div>
+  <%= link_to "View Books Added by All Users", books_path %>
+</div>
+<div>
+  <%= link_to "Add a New Book", new_book_path %>
+</div>
+<div>
+  <%= link_to "Add a New Rating", new_rating_path %>
+</div>
+<div>
+  <%= button_to 'Sign Out', signout_path %>
+</div>
