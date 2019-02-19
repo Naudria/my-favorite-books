@@ -24,6 +24,20 @@ class RatingsController < ApplicationController
   def show
   end
 
+  def create
+    if @rating = Rating.find_by(user_id: current_user.id, book_id: params[:rating][:book_id])
+      flash[:message] = "You've already reviewed this book."
+      redirect_to book_rating_path(@rating.book_id, @rating)
+    else
+      @rating = Rating.new(rating_params)
+      if @rating.save
+        redirect_to book_rating_path(@rating.book, @rating)
+      else
+        render :new
+      end
+    end
+  end
+
   def edit
   end
 
