@@ -1,5 +1,6 @@
 module RatingsHelper
 
+
   def show_stars(rating)
     case rating
     when 5

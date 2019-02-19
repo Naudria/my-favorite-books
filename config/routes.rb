@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :ratings
   end
 
+
   resources :ratings
 
   get '/signin' => 'sessions#new'

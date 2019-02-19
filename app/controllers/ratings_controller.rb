@@ -1,11 +1,11 @@
 class RatingsController < ApplicationController
-  before_action :find_rating, only: [:show, :edit, :update]
+  before_action :find_rating, only: [:show, :edit, :update, :index]
 
   def index
     if params[:book_id]
       @ratings = Book.find(params[:book_id]).ratings
     else
-      @rating = Rating.all
+      @ratings = Rating.all
     end
   end
 
@@ -22,6 +22,7 @@ class RatingsController < ApplicationController
   end
 
   def show
+    @rating = Rating.find(params[:id])
   end
 
   def create
