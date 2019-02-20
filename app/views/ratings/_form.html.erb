@@ -1,19 +1,21 @@
 <div>
-  <%= form_for(@rating) do |f| %>
-    <div>
-      <%= book_id_field(@rating) %>
-      <%= f.hidden_field :user_id %>
-    </div>
-    <div>
-      <%= f.label :stars %>
-      <%= f.select :stars, [[1], [2], [3], [4], [5]] %>
-    </div>
-    <div>
-      <%= f.label :notes %>
-      <%= f.text_area :notes %>
-    </div>
-    <div>
-      <%= f.submit %>
-    </div>
-  <% end %>
+  <div class="box">
+    <%= form_for(@rating) do |f| %>
+      <div>
+        <%= book_id_field(@rating) %>
+        <%= f.hidden_field :user_id %>
+      </div>
+      <div>
+        <%= f.label :stars %>
+        <%= f.select :stars, [[1], [2], [3], [4], [5]] %>
+      </div>
+      <div>
+        <%= f.label :notes %>
+        <%= f.text_area :notes %>
+      </div>
+      <div>
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
 </div>

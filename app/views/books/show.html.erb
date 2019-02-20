@@ -5,26 +5,25 @@
     <td>Author:</td>
     <td>Genre:</td>
     <td>Average Rating:</td>
+    <td>Reviews</td>
   </tr>
   <tr>
     <td> <%= @book.title %></td>
     <td><%= @book.author %></td>
     <td><%= @book.genre %></td>
     <td><%= show_stars(@book.average_rating) %></td>
+    <td><% if !@book.ratings.empty? %>
+        <%= link_to "Read Reviews", book_ratings_path(@book) %>
+      <% end %></td>
   </tr>
 </table>
 <div>
-  <% if !@book.ratings.empty? %>
-    <%= link_to "Read Reviews", book_ratings_path(@book) %>
-  <% end %>
-</div>
-<div>
   <% if !@book.users.include?(current_user) %>
-    <div><%= link_to "Add a review", new_book_rating_path(@book), class: "form-group btn btn-primary" %></div>
+    <div><%= link_to "Add a Review", new_book_rating_path(@book) %></div>
   <% end %>
   <% if @book.creator_id == current_user.id %>
     <div>
-      <%= link_to "Edit this book", edit_book_path %>
+      <%= link_to "Edit this Book", edit_book_path %>
     </div>
   <% end %>
   <div><%= link_to "Back to Profile", user_path(current_user) %></div>

@@ -5,8 +5,10 @@
 <% end %>
 <div>
   <% @ratings.each do |rating| %>
-    <p>Rating: <%= show_stars(rating.stars) %></p>
-    <p>User: <%=  rating.user.name %></p>
-    <%= link_to "Read the Review", book_rating_path(rating.book, rating) %>
+    <div class="box">
+      <p>Rating: <%= show_stars(rating.stars) %></p>
+      <p>User: <%=  rating.user.name %></p>
+      <%= link_to "Read the Review", book_rating_path(rating.book, rating) %>
+    </div>
   <% end %>
 </div>

@@ -9,21 +9,23 @@
   </div>
 <% end %>
 <div>
-  <%= form_for @user, controller: 'users', action: 'create' do |f| %>
-    <div>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </div>
-    <div>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-    </div>
-    <div>
-      <%= f.label :password %>
-      <%= f.text_field :password %>
-    </div>
-    <div>
-      <%= f.submit "Create Account" %>
-    </div>
-  <% end %>
+  <div class="box">
+    <%= form_for @user, controller: 'users', action: 'create' do |f| %>
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+      <div>
+        <%= f.label :password %>
+        <%= f.text_field :password %>
+      </div>
+      <div>
+        <%= f.submit "Create Account", class: "big_button" %>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -64,4 +64,5 @@ class RatingsController < ApplicationController
     @rating = Rating.find_by(id: params[:id])
   end
 
+
 end
