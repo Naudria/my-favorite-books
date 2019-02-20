@@ -1,3 +1,12 @@
+<% if @rating.errors.any? %>
+  <div class="notice">
+    <p>There were some errors:</p>
+    <br>
+    <% @rating.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  </div>
+<% end %>
 <div>
   <div class="box">
     <%= form_for(@rating) do |f| %>

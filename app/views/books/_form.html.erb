@@ -1,3 +1,12 @@
+<% if @book.errors.any? %>
+  <div class="notice">
+    <p>There were some errors:</p>
+    <br>
+    <% @book.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  </div>
+<% end %>
 <div>
   <div class="box">
     <%= form_for @book do |f| %>
