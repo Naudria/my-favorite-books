@@ -1,24 +1,23 @@
-# README
+# My Favorite Books
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+My Favorite Books is a simple Rails app that lets users rate books they’ve read and add them to a master list of books. It also allows them to rate books added by other users. A user is able to create an account, either by setting their email and password or authenticating through Facebook, add new books and ratings, edit books and ratings they created, and logout.  
 
-Things you may want to cover:
 
-* Ruby version
+This is my Rails Portfolio Project for Flatiron School's Full Stack Web Development course.
 
-* System dependencies
+## Installation
 
-* Configuration
+Clone this repo, bundle, start your rails server, and view the app in your browser
 
-* Database creation
+## Usage
 
-* Database initialization
+Create an account, and follow the instructions in the app.
 
-* How to run the test suite
+    
+## Contributing
 
-* Services (job queues, cache servers, search engines, etc.)
+Bug reports and pull requests are welcome on GitHub at https://github.com/Naudria/my-favorite-books. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* Deployment instructions
+## License
 
-* ...
+This app is available as open source under the terms of the MIT License.
