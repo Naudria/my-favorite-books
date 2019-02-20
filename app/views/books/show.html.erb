@@ -5,6 +5,7 @@
     <td>Author:</td>
     <td>Genre:</td>
     <td>Average Rating:</td>
+    <td>Total Ratings:</td>
     <td>Reviews</td>
   </tr>
   <tr>
@@ -12,6 +13,7 @@
     <td><%= @book.author %></td>
     <td><%= @book.genre %></td>
     <td><%= show_stars(@book.average_rating) %></td>
+    <td><%= @book.total_ratings %></td>
     <td><% if !@book.ratings.empty? %>
         <%= link_to "Read Reviews", book_ratings_path(@book) %>
       <% end %></td>
