@@ -1,4 +1,11 @@
 <h1>All Books</h1>
+<div>
+  <h3>Filter Books:</h3>
+  <%= form_tag("/books", method: "get") do %>
+    <%= select_tag "rating", options_for_select(["All", "Most Reviewed"]) %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
 <table>
   <tr>
     <td><strong>Title</strong></td>
@@ -17,6 +24,7 @@
     </tr>
   <% end %>
 </table>
-<p><%= link_to "Add a Book!", new_book_path %></p>
-<p><%= link_to "Back to Profile", user_path(current_user) %></p>
+<div>
+  <p><%= link_to "Add a Book!", new_book_path %></p>
+  <p><%= link_to "Back to Profile", user_path(current_user) %></p>
 </div>

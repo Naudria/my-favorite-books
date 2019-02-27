@@ -4,9 +4,12 @@ class RatingsController < ApplicationController
   def index
     if params[:book_id]
       @ratings = Book.find(params[:book_id]).ratings
+
     else
       @ratings = Rating.all
     end
+
+
   end
 
   def new

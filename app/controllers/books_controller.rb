@@ -1,6 +1,12 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    @ratings = Rating.all
+
+    if params[:rating] == "Most Reviewed"
+      @books = Book.popular
+    else
+      @books = Book.all
+    end
   end
 
   def new
