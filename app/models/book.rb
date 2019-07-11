@@ -13,6 +13,10 @@ class Book < ApplicationRecord
 
   end
 
+  def self.alpha
+    order('title ASC')
+  end
+
   def average_rating
     Rating.where(book_id: self.id).average(:stars).to_i
   end

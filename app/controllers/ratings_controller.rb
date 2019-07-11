@@ -15,8 +15,7 @@ class RatingsController < ApplicationController
   def new
     if params[:book_id] && !Book.exists?(params[:book_id])
       redirect_to books_path, flash[:message] = "Book not found."
-    elsif
-      @rating = Rating.find_by(user_id: current_user.id, book_id: params[:book_id])
+    elsif @rating = Rating.find_by(user_id: current_user.id, book_id: params[:book_id])
       flash[:message] = "You've already reviewed this book."
       redirect_to book_rating_path(@rating.book_id, @rating)
     else
