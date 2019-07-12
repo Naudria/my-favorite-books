@@ -270,3 +270,4 @@ form {
 .clearfix::after {
     content: "";
     clear: both;
+}
